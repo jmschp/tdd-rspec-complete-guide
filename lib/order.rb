@@ -1,5 +1,5 @@
 class Order
-  attr_reader :product_name, :quantity, :mailer
+  attr_reader :product_name, :quantity
 
   def initialize(product_name, quantity)
     @product_name = product_name
@@ -8,7 +8,7 @@ class Order
   end
 
   def fill(warehouse)
-    return mailer.send('Order not completed') unless warehouse.has_inventory?(product_name, quantity)
+    return @mailer.send('Order not completed') unless warehouse.has_inventory?(product_name, quantity)
 
     warehouse.remove(product_name, quantity)
     @filled = true

@@ -1,3 +1,10 @@
+# Mocks vs Stubs
+
+We are using Mocks whenever we do **behavior verification**, in [RSpec](https://rspec.info/) this could be with [Expecting messages](https://relishapp.com/rspec/rspec-mocks/v/3-12/docs/basics/expecting-messages) like `expect(something).to receive(:some_message)`, or using the [RSpec](https://rspec.info/) Spies syntax `expect(something).to have_received(:some_message)`.
+
+Martin Fowler example from [Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html) article, we have an application to manage orders, and it sends emails when the order is not completed, we could translate it to RSpec syntax
+
+```ruby
 require_relative '../lib/order'
 
 RSpec.describe Order do
@@ -128,3 +135,13 @@ RSpec.describe Order do
     end
   end
 end
+
+```
+
+---
+
+Useful links:
+
+- [Martin Fowler - Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html)
+- [StackOverflow - What's the difference between a mock & stub?](https://stackoverflow.com/questions/3459287/whats-the-difference-between-a-mock-stub)
+- [StackOverflow - RSpec allow/expect vs just expect/and_return](https://stackoverflow.com/questions/28006913/rspec-allow-expect-vs-just-expect-and-return)
